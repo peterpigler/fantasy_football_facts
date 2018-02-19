@@ -70,4 +70,3 @@ def get_official_all_games(official_id):
             pass
 
     return df
-
