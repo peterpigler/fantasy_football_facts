@@ -9,6 +9,9 @@ import tqdm
 
 # Links, headers, parsers -------------------
 
+REFS_ROOT = 'https://www.pro-football-reference.com/officials/'
+REF_STR = 'https://www.pro-football-reference.com/officials/{}.htm'
+
 def open_link(link):
 
     comm = re.compile('<!--|-->')

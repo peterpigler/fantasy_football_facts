@@ -12,6 +12,9 @@ import sys
 import json
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+MYLink= 'https://www.pro-football-reference.com'
+
+
 #Open the specific link without comments
 def open_link(link):
     comm = re.compile('<!--|-->')
@@ -177,6 +180,7 @@ for i in range(83,91):
     all_player = []
     plink=[]
     linkin=[]
+    PlayersLink = 'https://www.pro-football-reference.com/players'+'/'+chr(i)
     print(PlayersLink)
     plink = get_players_ID_and_Name(PlayersLink)
     for link in plink:
@@ -198,3 +202,21 @@ timestr = time.strftime("%Y%m%d-%H%M%S")
 with open('retry_links_'+timestr, 'w+') as out_file:
     pp = pprint.PrettyPrinter(indent=4, stream=out_file)
     pp.pprint(not_done)
+
+'''
+
+
+#For debug
+
+
+#get_WR_and_RB_information('https://www.pro-football-reference.com//players/A/AbbrJa00.htm','receiving_and_rushing')
+res=get_player_basic_information('https://www.pro-football-reference.com/players/P/PeteAd01.htm')
+with open('2017_all_player.data', 'w+') as out_file:
+    pp = pprint.PrettyPrinter(indent=4, stream=out_file)
+    pp.pprint(res)
+
+json.dump(res, open("text.txt",'w'))
+d2 = json.load(open("text.txt"))
+print(d2)
+
+'''
